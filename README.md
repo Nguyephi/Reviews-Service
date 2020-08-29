@@ -1,4 +1,4 @@
-# Hrr-43-SDC Reviews-service
+# Experience It Reviews-service
 
 Created by: [`Philip Nguyen`](https://www.linkedin.com/in/philip-nguyen-333963196/)
 
@@ -42,31 +42,6 @@ To set up the repo go [here](REVIEWS-SERVICE.md).
 alternatively (pgdb COPY FROM command)
 
 `\COPY reviews(id,experience_id,username,review,date,stars,avatar) FROM 'generateData/data.csv' DELIMITER ',' CSV HEADER;`
-
-### Apache Cassandra
-
-#### Environment variables
-
-<!-- needed for seeding data -->
-* `CSCONTACTPOINT` - localhost
-* `CSDATACENTER` - datacenter1
-* `CSKEYSPACE` - airbnb
-<!-- needed for schema command -->
-* `CSUSER` - cassandra
-* `CSPASSWORD` - cassandra
-* `CSPORT` - 9042
-
-#### Insert schema
-
-`cqlsh {CSCONTACTPOINT} -u {CSUSER} -p {CSPASSWORD} -k {CSKEYSPACE} -e "SOURCE 'generateData/csdbSchema.cql'"`
-
-#### Seed data
-
-`node generateData/csdbSeed.js`
-
-alternatively (csdb COPY FROM command)
-
-`COPY reviews(id,experience_id,username,review,date,stars,avatar) FROM 'generateData/data.csv' WITH DELIMITER=',' AND HEADER = TRUE;`
 
 ## Test database query
 
